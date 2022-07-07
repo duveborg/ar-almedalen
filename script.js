@@ -48,9 +48,9 @@ function renderPlaces() {
     const nameText = createText(place);
     nameText.setAttribute(
       'value',
-      `${place.name} - Mat: ${place.food ? 'Ja' : 'Nej'} - Öppet: ${
-        place.startTime
-      } - ${place.endTime}`
+      `${place.name}\n
+      Mat: ${place.food ? 'Ja' : 'Nej'}\n
+      Öppet: ${place.startTime} - ${place.endTime}`
     );
     nameText.addEventListener('click', () => {
       alert(place.description);
