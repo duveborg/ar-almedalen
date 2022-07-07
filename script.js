@@ -30,6 +30,7 @@ function renderPlaces() {
     );
     text.setAttribute('scale', '50 50 50');
     text.setAttribute('look-at', '[gps-camera]');
+    text.setAttribute('geometry', 'primitive:plane');
 
     text.addEventListener('loaded', () => {
       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
@@ -47,14 +48,14 @@ function renderPlaces() {
 
     const foodText = createText(place);
     foodText.setAttribute('value', `Mat: ${place.food ? 'Ja' : 'Nej'}`);
-    foodText.setAttribute('position', '0 3 0');
+    foodText.setAttribute('position', '0 -3 0');
 
     const openText = createText(place);
     openText.setAttribute(
       'value',
       `Öppet: ${place.startTime} - ${place.endTime}`
     );
-    openText.setAttribute('position', '0 6 0');
+    openText.setAttribute('position', '0 -6 0');
 
     scene.appendChild(openText);
     scene.appendChild(nameText);
