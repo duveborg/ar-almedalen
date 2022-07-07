@@ -3,7 +3,6 @@ window.onload = () => {
 };
 
 function renderPlaces(places) {
-  console.log(places);
   let scene = document.querySelector('a-scene');
 
   places.forEach((place) => {
@@ -11,17 +10,14 @@ function renderPlaces(places) {
     let longitude = place.lng;
 
     // add place name
-    const placeText = document.createElement('a-image');
+    const placeText = document.createElement('a-text');
     placeText.setAttribute(
       'gps-entity-place',
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    placeText.setAttribute('name', place.name);
+    placeText.setAttribute('value', place.name);
     placeText.setAttribute('scale', '15 15 15');
-    placeText.setAttribute(
-      'src',
-      'https://maps.google.com/mapfiles/ms/icons/red.png'
-    );
+    placeText.setAttribute('look-at', '[gps-camera]');
 
     placeText.addEventListener('loaded', () => {
       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
