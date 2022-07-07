@@ -34,7 +34,7 @@ function renderPlaces() {
       'geometry',
       'primitive: plane; height: auto; width: auto'
     );
-    text.setAttribute('baseline', 'bottom');
+    //text.setAttribute('baseline', 'bottom');
     text.setAttribute('material', 'color: lightblue');
 
     text.addEventListener('loaded', () => {
