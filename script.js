@@ -11,13 +11,17 @@ function renderPlaces(places) {
     let longitude = place.lng;
 
     // add place name
-    const placeText = document.createElement('a-link');
+    const placeText = document.createElement('a-image');
     placeText.setAttribute(
       'gps-entity-place',
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    placeText.setAttribute('title', place.name);
+    placeText.setAttribute('name', place.name);
     placeText.setAttribute('scale', '15 15 15');
+    placeText.setAttribute(
+      'src',
+      'https://maps.google.com/mapfiles/ms/icons/red.png'
+    );
 
     placeText.addEventListener('loaded', () => {
       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
