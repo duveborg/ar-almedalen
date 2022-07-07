@@ -30,7 +30,7 @@ function renderPlaces() {
     );
     text.setAttribute('scale', '50 50 50');
     text.setAttribute('look-at', '[gps-camera]');
-    text.setAttribute('z-offset', '0.5');
+    //text.setAttribute('z-offset', '0.5');
     //text.setAttribute('geometry', 'primitive: plane; height: auto; width: 10');
     text.setAttribute('baseline', 'bottom');
     //text.setAttribute('material', 'color: lightblue');
