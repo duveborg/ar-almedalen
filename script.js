@@ -49,6 +49,13 @@ function renderPlaces() {
     foodText.setAttribute('value', `Mat: ${place.food ? 'Ja' : 'Nej'}`);
     foodText.setAttribute('position', '0 3 0');
 
+    const openText = createText(place);
+    foodText.setAttribute(
+      'value',
+      `Öppet: ${place.startTime} - ${place.endTime}`
+    );
+    foodText.setAttribute('position', '0 6 0');
+
     scene.appendChild(nameText);
     scene.appendChild(foodText);
   });
