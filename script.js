@@ -22,28 +22,34 @@ function renderPlaces() {
 
   console.log('There are this many open events:', openEvents.length);
 
-  openEvents.forEach((place) => {
-    let latitude = place.lat;
-    let longitude = place.lng;
-
-    // add place name
-    const placeText = document.createElement('a-text');
-    placeText.setAttribute(
+  const createText = (place) => {
+    const text = document.createElement('a-text');
+    text.setAttribute(
       'gps-entity-place',
-      `latitude: ${latitude}; longitude: ${longitude};`
+      `latitude: ${place.lat}; longitude: ${place.lng};`
     );
-    placeText.setAttribute('value', place.name);
-    placeText.setAttribute('scale', '50 50 50');
-    placeText.setAttribute('look-at', '[gps-camera]');
+    text.setAttribute('scale', '50 50 50');
+    text.setAttribute('look-at', '[gps-camera]');
 
-    placeText.addEventListener('loaded', () => {
+    text.addEventListener('loaded', () => {
       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
     });
 
-    placeText.addEventListener('click', () => {
+    return text;
+  };
+
+  openEvents.forEach((place) => {
+    const nameText = createText(place);
+    nameText.setAttribute('value', place.name);
+    nameText.addEventListener('click', () => {
       alert(place.description);
     });
 
-    scene.appendChild(placeText);
+    const foodText = createText(place);
+    foodText.setAttribute('value', `Mat: ${place.food ? 'Ja' : 'Nej'}`);
+    foodText.setAttribute('position', '0 3 0');
+
+    scene.appendChild(nameText);
+    scene.appendChild(foodText);
   });
 }
