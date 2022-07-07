@@ -1,12 +1,28 @@
 window.onload = () => {
-  renderPlaces(entries.splice(0, 10));
+  renderPlaces();
 };
 
-function renderPlaces(places) {
-  let scene = document.querySelector('a-scene');
+function isOpen(event) {
+  // temporary
+  const now = new Date('2022-07-03T16:00:00');
+  const start = new Date(event.startTime);
+  const end = new Date(event.endTime);
 
-  places.forEach((place) => {
-    console.log('adding place', place.name);
+  return now > start && now < end;
+}
+
+function renderPlaces() {
+  const openEvents = entries.filter(isOpen);
+
+  const scene = document.querySelector('a-scene');
+
+  scene
+    .querySelectorAll('a-text')
+    .forEach((text) => text.parentNode.removeChild(text));
+
+  console.log('There are this many open events:', openEvents.length);
+
+  openEvents.forEach((place) => {
     let latitude = place.lat;
     let longitude = place.lng;
 
@@ -22,6 +38,10 @@ function renderPlaces(places) {
 
     placeText.addEventListener('loaded', () => {
       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
+    });
+
+    placeText.addEventListener('click', () => {
+      alert(place.description);
     });
 
     scene.appendChild(placeText);
