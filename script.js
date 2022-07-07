@@ -43,7 +43,12 @@ function renderPlaces() {
 
   openEvents.forEach((place) => {
     const nameText = createText(place);
-    nameText.setAttribute('value', place.name);
+    nameText.setAttribute(
+      'value',
+      `${place.name} - Mat: ${place.food ? 'Ja' : 'Nej'} - Öppet: ${
+        place.startTime
+      } - ${place.endTime}`
+    );
     nameText.addEventListener('click', () => {
       alert(place.description);
     });
@@ -59,8 +64,8 @@ function renderPlaces() {
     );
     openText.setAttribute('position', '0 -6 0');
 
-    scene.appendChild(openText);
+    // scene.appendChild(openText);
     scene.appendChild(nameText);
-    scene.appendChild(foodText);
+    // scene.appendChild(foodText);
   });
 }
