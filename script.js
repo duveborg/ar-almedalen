@@ -1,5 +1,5 @@
 window.onload = () => {
-  renderPlaces(entries);
+  renderPlaces(entries.splice(0, 10));
 };
 
 function renderPlaces(places) {
