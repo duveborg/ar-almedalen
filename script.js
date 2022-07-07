@@ -50,12 +50,13 @@ function renderPlaces() {
     foodText.setAttribute('position', '0 3 0');
 
     const openText = createText(place);
-    foodText.setAttribute(
+    openText.setAttribute(
       'value',
       `Öppet: ${place.startTime} - ${place.endTime}`
     );
-    foodText.setAttribute('position', '0 6 0');
+    openText.setAttribute('position', '0 6 0');
 
+    scene.appendChild(openText);
     scene.appendChild(nameText);
     scene.appendChild(foodText);
   });
