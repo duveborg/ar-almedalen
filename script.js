@@ -33,7 +33,7 @@ function renderPlaces() {
       `latitude: ${latitude}; longitude: ${longitude};`
     );
     placeText.setAttribute('value', place.name);
-    //placeText.setAttribute('scale', '15 15 15');
+    placeText.setAttribute('scale', '50 50 50');
     placeText.setAttribute('look-at', '[gps-camera]');
 
     placeText.addEventListener('loaded', () => {
