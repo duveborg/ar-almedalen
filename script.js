@@ -4,7 +4,7 @@ window.onload = () => {
 
 function isOpen(event) {
   // temporary
-  const now = new Date('2022-07-03T16:00:00');
+  const now = new Date('2022-07-03T20:00:00');
   const start = new Date(event.startTime);
   const end = new Date(event.endTime);
 
@@ -30,10 +30,10 @@ function renderPlaces() {
     );
     text.setAttribute('scale', '50 50 50');
     text.setAttribute('look-at', '[gps-camera]');
-    text.setAttribute('zOffset', '0.1');
-    text.setAttribute('geometry', 'primitive: plane; height: auto; width: 4');
-    //text.setAttribute('baseline', 'bottom');
-    text.setAttribute('material', 'color: lightblue');
+    text.setAttribute('z-offset', '0.5');
+    //text.setAttribute('geometry', 'primitive: plane; height: auto; width: 10');
+    text.setAttribute('baseline', 'bottom');
+    //text.setAttribute('material', 'color: lightblue');
 
     text.addEventListener('loaded', () => {
       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
