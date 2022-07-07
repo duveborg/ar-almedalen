@@ -30,7 +30,9 @@ function renderPlaces() {
     );
     text.setAttribute('scale', '50 50 50');
     text.setAttribute('look-at', '[gps-camera]');
-    text.setAttribute('geometry', 'primitive:plane');
+    text.setAttribute('geometry', 'primitive:plane; width: 4; height: auto');
+    text.setAttribute('baseline', 'bottom');
+    text.setAttribute('material', 'color: lightblue');
 
     text.addEventListener('loaded', () => {
       window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
