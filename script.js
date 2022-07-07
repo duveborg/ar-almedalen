@@ -30,10 +30,8 @@ function renderPlaces() {
     );
     text.setAttribute('scale', '50 50 50');
     text.setAttribute('look-at', '[gps-camera]');
-    text.setAttribute(
-      'geometry',
-      'primitive: plane; height: auto; width: auto'
-    );
+    text.setAttribute('zOffset', '0.1');
+    text.setAttribute('geometry', 'primitive: plane; height: auto; width: 4');
     //text.setAttribute('baseline', 'bottom');
     text.setAttribute('material', 'color: lightblue');
 
@@ -55,17 +53,6 @@ function renderPlaces() {
     nameText.addEventListener('click', () => {
       alert(place.description);
     });
-
-    const foodText = createText(place);
-    foodText.setAttribute('value', `Mat: ${place.food ? 'Ja' : 'Nej'}`);
-    foodText.setAttribute('position', '0 -3 0');
-
-    const openText = createText(place);
-    openText.setAttribute(
-      'value',
-      `Öppet: ${place.startTime} - ${place.endTime}`
-    );
-    openText.setAttribute('position', '0 -6 0');
 
     // scene.appendChild(openText);
     scene.appendChild(nameText);
