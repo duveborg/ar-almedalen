@@ -2,6 +2,7 @@
 
 This is an app that displays the events in almedalsveckan in mobile web augumented reality
 
+https://duveborg.github.io/ar-almedalen/
 
 TODO:
 - Improve the way the events are visualized (they are on top of eachother now..)
